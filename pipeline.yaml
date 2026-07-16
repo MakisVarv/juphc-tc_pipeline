@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:  
-  name: juphc-tc-pipeline
+  name: tc-pipeline
 spec:
   workspaces:
     - name: pipeline-workspace
@@ -63,6 +63,6 @@ spec:
         kind: ClusterTask
       params:
         - name: IMAGE
-          value: "us.icr.io/$(context.pipelineRun.namespace)/$(params.app-name)"
+          value: "us.icr.io/sn-labs-christomvarv/tax-calculator"
       runAfter:
         - tests
